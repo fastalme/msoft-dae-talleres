@@ -2,6 +2,11 @@
 ## Guía
 
 - Copiar la carpeta de este directorio llamada `ms` a la carpeta ***home*** de usuario de sistema
+- Levantar `discovery-server`
+- Levantar `config-server`
+- Levantar `irs-ms`
+- Levantar `customer-ms`
+- Levantar `api-gateway`
 - Para esquema Estatico con reescritura de path
   - En el archivo `api-gateway.properties` del repositorio de configuraciones
     - Comentar las propiedades debajo del comentario `Estatico`
