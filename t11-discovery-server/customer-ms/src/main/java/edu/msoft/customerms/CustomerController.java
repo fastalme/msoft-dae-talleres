@@ -41,7 +41,7 @@ public class CustomerController {
         return new ResponseEntity<>(this.someProperty, HttpStatus.OK);
     }
 
-    @GetMapping("/pid")
+    @GetMapping("/customer/pid")
     public ResponseEntity<String> getPID() {
         return new ResponseEntity<>(System.getProperty("PID"), HttpStatus.OK);
     }
