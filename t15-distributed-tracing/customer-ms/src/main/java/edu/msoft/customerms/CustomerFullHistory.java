@@ -1,16 +1,14 @@
 package edu.msoft.customerms;
 
-import java.util.List;
-
 public class CustomerFullHistory {
 
     private Customer customer;
-    private List<Earnings> earnings;
+    private EarningsReport earnings;
 
     public CustomerFullHistory () {
     }
 
-    public CustomerFullHistory (Customer customer, List<Earnings> earnings) {
+    public CustomerFullHistory (Customer customer, EarningsReport earnings) {
         this.customer = customer;
         this.earnings = earnings;
     }
@@ -23,11 +21,11 @@ public class CustomerFullHistory {
         this.customer = customer;
     }
 
-    public List<Earnings> getEarnings () {
+    public EarningsReport getEarnings () {
         return earnings;
     }
 
-    public void setEarnings (List<Earnings> earnings) {
+    public void setEarnings (EarningsReport earnings) {
         this.earnings = earnings;
     }
 
