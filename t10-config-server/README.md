@@ -13,3 +13,4 @@
 - Revisar los principales tecnologías utilizadas
 
 [Config Server Docs](https://docs.spring.io/spring-cloud-config/docs/3.1.3/reference/html/)
+[Config refresh strategies](https://soshace.com/spring-cloud-config-refresh-strategies/)
