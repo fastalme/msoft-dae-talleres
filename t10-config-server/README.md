@@ -1,13 +1,9 @@
 # Taller 10 - Spring Cloud Config Server
 ## Guía
 
-- Copiar el proyecto de `customer-ms`
-- Crear directorio local con archivo de configuración para `customer-ms`
-- Crear proyecto con la dependencia:  `Config Server`
-- Configurarlo
-  - Copiar la carpeta de este directorio llamada `ms` a la carpeta ***home*** de usuario de sistema 
+- Copiar la carpeta de este directorio llamada `ms` a la carpeta ***home*** de usuario de sistema 
 - Levantar `config-server`
-- Levantar y comprobar propiedad desde `customer-ms` 
+- Levantar `customer-ms`
 
 ## Aspectos a tratar
 - Revisar los principales tecnologías utilizadas
