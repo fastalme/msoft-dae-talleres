@@ -1,23 +1,33 @@
 # Taller 14 - Spring Cloud Gateway
 ## Guía
 
-- Copiar el proyecto de `customer-ms`
-- Copiar el proyecto de `irs-ms`
-- Copiar el proyecto de `config-server`
-- Copiar el proyecto de `discovery-server`
-- Crear proyecto con la dependencia:  `Gateway`
-- Configurarlo
-- Levantar `discovery-server`
-- Levantar `config-server`
-- Levantar `customer-ms`
-- Levantar y comprobar acceso desde `api-gateway`
+- Copiar la carpeta de este directorio llamada `ms` a la carpeta ***home*** de usuario de sistema
+- Para esquema Estatico con reescritura de path
+  - En el archivo `api-gateway.properties` del repositorio de configuraciones
+    - Comentar las propiedades debajo del comentario `Estatico`
+    - Habilitar las propiedades debajo del comentario `Estatico con reescritura de path`
+  - Reiniciar `api-gateway`
+- Para esquema Dinamico explicito
+    - En el archivo `api-gateway.properties` del repositorio de configuraciones
+        - Comentar las propiedades debajo del comentario `Estatico con reescritura de path`
+        - Habilitar las propiedades debajo del comentario `Dinamico explicito`
+    - Reiniciar `api-gateway`
+    - En el archivo `customer-ms.properties` del repositorio de configuraciones
+        - Cambiar el valor de `server-port` por `0`
+    - En el proyecto `customer-ms` configurar `Allow multiple instances`
+    - Levantar varios `customer-ms`
+- Para esquema Dinamico por locator
+    - En el archivo `api-gateway.properties` del repositorio de configuraciones
+        - Comentar las propiedades debajo del comentario `Dinamico explicito`
+        - Habilitar las propiedades debajo del comentario `Dinamico por locator`
+    - Reiniciar `api-gateway`
 
 ## Aspectos a tratar
 - Tecnologías utilizadas
-- Configuración estática
-- Configuración dinámica explícita
-- Configuración dinámica por locator
-- Configuración centralizada
-- ¿Cuál no s serviría más en una aplicación a gran escala?
+- Esquema estático
+- Esquema estático con reescritura de path
+- Esquema dinámico explícito
+- Esquema dinámico por locator
+- ¿Cuál nos serviría más en una aplicación a gran escala?
 
 [Spring Cloud Gateway Docs](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html)
