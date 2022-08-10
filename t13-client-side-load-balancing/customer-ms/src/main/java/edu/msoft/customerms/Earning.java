@@ -2,16 +2,16 @@ package edu.msoft.customerms;
 
 import java.math.BigDecimal;
 
-public class Earnings {
+public class Earning {
 
     private Long customerId;
     private Short year;
     private BigDecimal amount;
 
-    public Earnings () {
+    public Earning () {
     }
 
-    public Earnings (Long customerId, Short year, BigDecimal amount) {
+    public Earning (Long customerId, Short year, BigDecimal amount) {
         this.customerId = customerId;
         this.year = year;
         this.amount = amount;
