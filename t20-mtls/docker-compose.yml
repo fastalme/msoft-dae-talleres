@@ -1,0 +1,14 @@
+version: '3.2'
+services:
+  restapi:
+    build:
+      context: ./customer-ms
+    ports:
+      - '8080:8080'
+  nginx:
+    build:
+      context: ./nginx
+    ports:
+      - '443:443'
+    links:
+      - restapi
