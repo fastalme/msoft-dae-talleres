@@ -1,35 +1,35 @@
 Certificate:
     Data:
         Version: 3 (0x2)
-        Serial Number: 1 (0x1)
+        Serial Number: 5 (0x5)
     Signature Algorithm: sha256WithRSAEncryption
         Issuer: C=EC, ST=Guayas, L=Guayaquil, O=Test.Org, OU=Testing, CN=Test.Org CA Root
         Validity
-            Not Before: Aug 13 18:25:55 2022 GMT
-            Not After : Aug 10 18:25:55 2032 GMT
+            Not Before: Aug 14 16:17:38 2022 GMT
+            Not After : Aug 11 16:17:38 2032 GMT
         Subject: C=EC, ST=Guayas, O=Test.Org, OU=Testing, CN=*.restapi.com/emailAddress=admin@restapi.com
         Subject Public Key Info:
             Public Key Algorithm: rsaEncryption
                 Public-Key: (2048 bit)
                 Modulus:
-                    00:c3:95:0e:7c:2d:0c:b0:41:f4:b6:65:6c:fa:b8:
-                    38:9e:2c:9c:af:34:97:ef:38:76:84:7c:ae:d4:1e:
-                    72:db:7b:b7:63:a1:04:a4:00:61:69:96:c8:66:37:
-                    cb:f7:4b:1b:1e:0c:95:9d:82:82:f9:bd:82:79:9a:
-                    49:60:18:1f:45:63:b7:16:8d:4d:d8:07:9f:d2:ad:
-                    50:ba:b0:1c:af:17:df:17:9b:82:fa:ec:d8:ef:22:
-                    98:fd:1c:30:99:35:ea:e9:1a:bf:0f:6f:17:0d:db:
-                    a4:83:14:19:61:e9:90:87:b0:e7:95:9c:83:33:47:
-                    63:bb:fa:d7:b0:20:66:f3:99:9e:52:fc:25:67:d3:
-                    84:11:0b:96:24:25:d3:7f:6e:55:8e:3e:ba:cc:4f:
-                    c9:8d:7a:0a:bb:b3:a9:58:03:ba:4d:b0:ff:3c:8b:
-                    63:87:61:a9:60:d9:e9:c6:c5:b1:a7:47:45:f7:4e:
-                    a9:29:12:f0:4f:a0:10:92:97:9b:7b:9a:96:8b:f1:
-                    66:06:b4:11:7f:60:af:ea:e0:9c:ff:e5:5d:78:5e:
-                    09:41:6d:c3:06:40:1f:0b:8c:a1:0b:03:22:75:d8:
-                    b4:7e:eb:30:a4:a0:0b:c0:64:d0:6b:c0:2f:22:0a:
-                    a0:16:2b:5c:28:d5:74:29:f8:7f:fa:b0:64:df:e0:
-                    2d:5b
+                    00:d8:4b:aa:b6:b8:49:87:4b:60:74:72:89:bc:98:
+                    c6:ce:5b:97:a3:80:06:3c:94:45:7c:a7:9e:9c:6b:
+                    41:1d:84:4b:88:73:77:c6:68:03:55:17:a1:12:e3:
+                    5b:15:29:bc:95:42:f6:a7:13:14:36:38:b9:4a:70:
+                    3e:53:d8:35:e7:18:c7:54:70:2e:9c:65:64:5f:28:
+                    f2:3f:78:ec:fe:16:77:d0:a7:ff:59:61:ee:0c:90:
+                    82:94:ba:1c:6d:40:3e:5a:6c:6a:07:8f:77:b8:51:
+                    71:80:36:cb:55:04:42:aa:b6:41:9e:8c:3f:78:e4:
+                    d3:8b:7e:63:7e:18:26:59:28:a9:aa:73:05:3a:7a:
+                    02:e4:05:3d:5e:09:8c:1b:52:b2:e7:f5:5f:76:a7:
+                    68:ce:3b:f6:9f:b0:e3:e4:f0:61:9e:1c:7a:3d:8a:
+                    b6:26:e5:e7:bf:d0:4f:78:8c:a9:de:8a:9b:5b:2b:
+                    c1:c7:b6:23:91:f2:e9:c7:46:bd:ca:55:ec:9c:da:
+                    59:a8:d3:f6:4f:63:0e:a7:90:14:cb:35:64:85:0d:
+                    9c:a4:76:68:97:f9:84:a3:ff:80:c3:1d:1a:41:45:
+                    aa:aa:0c:82:f6:08:b2:ed:c7:4e:d6:e4:29:40:48:
+                    ad:db:b4:9b:11:91:4f:11:12:ab:39:0e:c3:f6:f6:
+                    08:1d
                 Exponent: 65537 (0x10001)
         X509v3 extensions:
             X509v3 Basic Constraints: 
@@ -37,51 +37,52 @@ Certificate:
             Netscape Comment: 
                 OpenSSL Generated Certificate
             X509v3 Subject Key Identifier: 
-                4C:9F:D0:35:73:E9:51:A9:F3:DD:81:2D:E3:2B:4A:F0:82:DB:86:85
+                87:BF:20:9E:68:D6:8C:8A:3B:D9:1A:C7:CC:E8:FE:B0:CA:62:EC:F0
             X509v3 Authority Key Identifier: 
                 keyid:F4:FF:85:B1:17:87:32:57:A4:10:56:3A:34:DB:81:8F:F9:2D:7C:8C
 
             X509v3 Subject Alternative Name: 
-                DNS:*.restapi.com, DNS:restapi.com, DNS:restapi
+                DNS:*.restapi.com, DNS:restapi.com, DNS:restapi, DNS:localhost
     Signature Algorithm: sha256WithRSAEncryption
-         5c:0d:6e:8e:4e:46:f6:e6:bc:f8:bc:02:21:91:fa:64:e4:fb:
-         87:84:5a:ca:51:68:0f:c2:2b:3b:2e:83:e4:14:35:36:73:74:
-         aa:2f:83:fa:75:a0:8e:5f:88:b8:ae:9e:46:35:8f:36:4d:0a:
-         b2:85:27:b8:62:c4:25:c7:e5:eb:7a:c9:5c:a9:d6:0c:cb:49:
-         94:20:58:b0:3c:11:b2:ea:0f:7c:3f:91:6a:51:66:79:4f:8d:
-         fd:cc:25:52:48:d6:74:dd:93:f1:42:97:13:96:11:8c:fd:ab:
-         96:75:e1:5a:1a:fa:aa:9d:b2:64:c2:b3:c7:d5:1e:4d:9b:84:
-         78:89:b7:bd:1d:62:20:95:30:9c:33:d2:01:d8:02:fc:dd:a7:
-         fc:be:a7:ae:fe:f2:2c:4b:1d:23:42:a1:0b:09:ea:b5:c9:d0:
-         50:c6:b7:c9:57:75:47:e9:4a:ab:27:ca:a0:86:f6:3a:46:23:
-         b6:7e:6a:b6:5e:a7:b7:ac:16:81:58:bc:ae:7e:cf:40:89:78:
-         e6:da:08:a8:9b:93:58:26:e0:fd:c0:26:19:6a:4a:fe:20:81:
-         c5:40:9f:37:45:07:ac:7e:34:ff:e5:cd:08:14:5f:69:dc:36:
-         9c:74:0a:a4:81:69:6e:3e:68:69:16:ca:82:2c:c6:56:37:fd:
-         92:66:ab:e6
+         16:89:8c:4b:37:11:17:2f:3e:77:9e:3e:1b:d6:cd:5f:de:71:
+         61:17:d2:a4:a1:23:e1:a7:4d:35:e2:72:ed:be:e7:3c:c1:b6:
+         32:1f:e4:cc:f7:fa:a2:e3:3d:a2:7e:bb:f4:55:7c:67:c0:e4:
+         f2:06:12:9b:1a:47:81:f3:fc:cf:71:75:83:7e:b8:ce:f0:9f:
+         70:02:f0:80:a7:48:c8:91:9f:43:20:e4:8a:8c:e3:ac:a0:cf:
+         a2:a4:c6:4e:1a:77:37:39:42:32:6b:4f:e7:7c:27:09:92:5f:
+         e2:a3:e0:f9:a6:03:c0:a8:0a:30:2d:ab:b8:5b:9e:70:c2:4e:
+         6f:17:21:45:10:43:e3:73:63:03:95:44:bb:0c:df:fe:49:e4:
+         da:76:d6:97:e5:3b:09:59:f6:dc:37:1e:82:9e:67:6e:ce:d6:
+         48:be:d2:06:14:f0:ea:ac:d8:4d:e7:a3:37:c5:18:d0:2a:3c:
+         68:cc:e0:93:db:3c:36:6a:36:67:66:89:5c:26:3a:df:11:56:
+         15:94:9a:0f:b7:dc:a3:bd:0b:cf:9d:e5:b2:7f:70:9f:66:95:
+         f2:c0:bb:cc:10:07:bd:1c:4d:a1:2d:b2:b8:70:3e:98:e7:1c:
+         04:86:3c:79:72:70:e4:80:be:ab:41:3b:79:ec:02:65:3a:76:
+         4f:e6:5e:e2
 -----BEGIN CERTIFICATE-----
-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
+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
-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
+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
-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
+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
-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
+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
+OnZP5l7i
 -----END CERTIFICATE-----
 -----BEGIN CERTIFICATE-----
 MIIDtzCCAp+gAwIBAgIJALNm6gVK96svMA0GCSqGSIb3DQEBCwUAMHIxCzAJBgNV

@@ -1,4 +1,5 @@
 # Taller 20 - MTLS
+
 ## Guía
 
 ### 1. Instalar OpenSSl (Solo para Windows)
@@ -33,6 +34,7 @@ Otra alternativa es ubicar el ejecutable que se instala junto con [Git for Windo
 - En una consola nueva, ubicada en el directorio `openssl-ca`, ejecutar los siguientes comandos:
   - Crear una semilla random: `openssl rand -out private/.rand 1000`
   - Generar una llave privada RSA para el certificado root: `openssl genrsa -aes256 -out private/ca.key`
+    - Se solicitará una clave para la llave privada. Ingresar y recordar este valor para cuando sea solicitado. 
   - Generar el certificado root: `openssl req -config ca.cfg -new -x509 -key private/ca.key -out ca.crt`
 
 ### 3. Crear certificados hijos
@@ -72,6 +74,29 @@ Otra alternativa es ubicar el ejecutable que se instala junto con [Git for Windo
 - Desde la carpeta raíz del repositorio
   - Ejecutar `docker-compose up --build`
 
+### 6. Probar con curl
+
+- Request inseguro (sin enviar certificado cleinte)
+  - Ejecutar: `curl -k https://localhost/customers`
+  - Revisar respuesta
+- Request seguro (con certificado cliente)
+  - Ejecutar:
+    ```
+    curl -k \
+    --key ~/devel/data/openssl-ca/req-restclient/restclient.key \
+    --cert ~/devel/data/openssl-ca/req-restclient/restclient.crt \
+    https://localhost/customers
+    ```
+
+### 7. Probar con cliente Spring
+
+- Crear keystore en formato P12
+  - Abrir una consola, ubicarse en el directorio `openssl-ca/req-restclient` 
+  - Ejecutar: `openssl pkcs12 -export -inkey restclient.key -in restclient.crt -out keystore.p12`
+- Create truststore en JKS (CA.crt)
+  - Abrir una consola, ubicarse en el directorio `openssl-ca` 
+  - Ejecutar: `keytool -import -v -trustcacerts -alias root -keypass openssl -file ../ca.crt -keystore truststore.jks -storepass openssl`
+
 
 ## Aspectos a tratar
 - Infraestructura de clave pública
@@ -83,15 +108,6 @@ Otra alternativa es ubicar el ejecutable que se instala junto con [Git for Windo
   - Headers nuevos
   - Dockerfile
 - Docker compose
-- Prueba
-  - Request inseguro (sin enviar certificado cleinte)
-    - Ejecutar: `curl -k https://localhost/customers`
-    - Revisar respuesta
-  - Request seguro (con certificado cliente)
-    - Ejecutar:
-      ```
-      curl -k \
-      --key ~/devel/data/openssl-ca/req-restclient/restclient.key \
-      --cert ~/devel/data/openssl-ca/req-restclient/restclient.crt \
-      https://localhost/customers
-      ```
+- En proyecto `client-mtls`
+  - Archivos `keystore.p12` y `truststore.jks`
+  - Clases `CustomerClientConfiguration` y `CustomerPrinterRunner`
