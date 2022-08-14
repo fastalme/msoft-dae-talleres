@@ -23,7 +23,7 @@ public class CustomerClientConfiguration {
 
     public static final String TRUSTSTORE_PATH = "truststore.jks";
     public static final String TRUSTSTORE_PASSWORD = "openssl";
-    public static final String KEYSTORE_PATH = "restapi-keystore.p12";
+    public static final String KEYSTORE_PATH = "restclient-keystore.p12";
     public static final String KEYSTORE_PASSWORD = "openssl";
 
     @Bean
