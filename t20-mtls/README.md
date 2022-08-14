@@ -90,12 +90,15 @@ Otra alternativa es ubicar el ejecutable que se instala junto con [Git for Windo
 
 ### 7. Probar con cliente Spring
 
-- Crear keystore en formato P12
+- Crear keystore del cliente en formato P12
   - Abrir una consola, ubicarse en el directorio `openssl-ca/req-restclient` 
-  - Ejecutar: `openssl pkcs12 -export -inkey restclient.key -in restclient.crt -out keystore.p12`
-- Create truststore en JKS (CA.crt)
+  - Ejecutar: `openssl pkcs12 -export -inkey restclient.key -in restclient.crt -out restclient-keystore.p12`
+  - Copiar el archivo `restclient-keystore.p12` en el directorio `client-mtls/src/main/resources`
+- Create truststore en formato JKS (CA.crt)
   - Abrir una consola, ubicarse en el directorio `openssl-ca` 
-  - Ejecutar: `keytool -import -v -trustcacerts -alias root -keypass openssl -file ../ca.crt -keystore truststore.jks -storepass openssl`
+  - Ejecutar: `keytool -import -v -trustcacerts -alias root -keypass openssl -file ca.crt -keystore truststore.jks -storepass openssl -storetype JKS`
+  - Copiar el archivo `truststore.jks` en el directorio `client-mtls/src/main/resources`
+- Ejecutar la clase `ClientMtlsApplication`
 
 
 ## Aspectos a tratar
