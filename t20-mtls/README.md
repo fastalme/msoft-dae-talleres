@@ -114,15 +114,19 @@ Otra alternativa es ubicar el ejecutable que se instala junto con [Git for Windo
 - Crear keystore del cliente en formato P12
   - Abrir una consola, ubicarse en el directorio `openssl-ca/req-restclient` 
   - Ejecutar: `openssl pkcs12 -export -inkey restclient.key -in restclient.crt -out restclient-keystore.p12`
-    - Va a pedir ingresar un `export password`, ingresar el valor `openssl`. *Si se ingresa otra clave se deberá modificar la constante `KEYSTORE_PASSWORD` en la clase `CustomerClientConfiguration` antes de ejecutar la aplicación cliente*.
-  - Copiar el archivo `restclient-keystore.p12` en el directorio `client-mtls/src/main/resources`
+    - Va a pedir ingresar un `export password`, ingresar el valor `openssl`.
+  - Copiar el archivo `restclient-keystore.p12` en el directorio `client-mtls/src/main/resources`, reemplazando de ser necesario.
 - Create truststore en formato JKS (CA.crt)
   - Abrir una consola, ubicarse en el directorio `openssl-ca` 
   - Ejecutar: `keytool -import -v -trustcacerts -alias root -keypass openssl -file ca.crt -keystore truststore.jks -storepass openssl -storetype JKS`
     - Va a pedir ingresar una confirmación. Se ingresa `yes` y se da `Enter`
-  - Copiar el archivo `truststore.jks` en el directorio `client-mtls/src/main/resources`
+  - Copiar el archivo `truststore.jks` en el directorio `client-mtls/src/main/resources`, reemplazando de ser necesario.
 - Ejecutar la clase `ClientMtlsApplication`
 
+### 8. Comprobación
+
+Finalmente, se podrá revisar a nivel cabeceras en el log de consola que se está utilizando el certificado cliente correspondiente.
+![](docs/result-check.png)
 
 ## Aspectos a tratar
 - Infraestructura de clave pública
