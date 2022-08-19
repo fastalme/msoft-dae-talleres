@@ -30,6 +30,7 @@ Otra alternativa es ubicar el ejecutable que se instala junto con [Git for Windo
     - `stateOrProvinceName_default`
     - `localityName_default`
     - `organizationName_default`
+      - Aquí, poner el nombre del grupo, por ejemplo: `MSOFT-Grupo-1`
     - `organizationalUnitName_default`
 - En una consola nueva, ubicada en el directorio `openssl-ca`, ejecutar los siguientes comandos:
   - Crear una semilla random: `openssl rand -out private/.rand 1000`
@@ -42,7 +43,7 @@ Otra alternativa es ubicar el ejecutable que se instala junto con [Git for Windo
 #### Crear certificado servidor
 - Editar el archivo `openssl-ca/req-restapi/restapi.cfg`
   - Dentro de la sección `[ dn ]` cambiar a conveniencia el valor de `emailAddress` de acuerdo al grupo:
-    - Ejemplo: `grupo1@restapi.com`
+    - Ejemplo: `grupo1-restapi@restapi.com`
 - En una consola, ubicada en el directorio `openssl-ca/req-restapi`, ejecutar los siguientes comandos:
   - Generar llave privada RSA y solicitud de certificado: `openssl req -config restapi.cfg -newkey rsa -nodes -keyout restapi.key -out restapi.csr`
   - Generar certificado firmado por CA: `openssl ca -config ../ca.cfg -in restapi.csr -out restapi.crt`
@@ -54,7 +55,7 @@ Otra alternativa es ubicar el ejecutable que se instala junto con [Git for Windo
 #### Crear certificado cliente
 - Editar el archivo `openssl-ca/req-restclient/restclient.cfg`
     - Dentro de la sección `[ dn ]` cambiar a conveniencia el valor de `emailAddress` de acuerdo al grupo:
-        - Ejemplo: `grupo1-client@restapi.com`
+        - Ejemplo: `grupo1-restclient@restapi.com`
 - En una consola, ubicada en el directorio `openssl-ca/req-restclient`, ejecutar los siguientes comandos:
     - Generar llave privada RSA y solicitud de certificado: `openssl req -config restclient.cfg -newkey rsa -nodes -keyout restclient.key -out restclient.csr`
     - Generar certificado firmado por CA: `openssl ca -config ../ca.cfg -in restclient.csr -out restclient.crt`
@@ -69,18 +70,19 @@ Otra alternativa es ubicar el ejecutable que se instala junto con [Git for Windo
 ### 5. Levantar el ambiente
 - Empaquetar el proyecto `customer-ms`
   - Desde la carpeta del repositorio `customer-ms`, ejecutar:
-    - En Windows: `mvnw.cmd package` 
-    - En Linux o MacOS: `./mvnw package`
+    - En Windows: `mvnw.cmd clean package` 
+    - En Linux o MacOS: `./mvnw clean package`
 - Desde la carpeta raíz del repositorio
   - Ejecutar `docker-compose up --build`
+    - Si `docker-compose` no está instalado, se puede seguir esta [guía](https://docs.docker.com/compose/install/).
 
 ### 6. Probar con curl
 
-- Request inseguro (sin enviar certificado cleinte)
+- Request inseguro (sin enviar certificado cliente)
   - Ejecutar: `curl -k https://localhost/customers`
-  - Revisar respuesta
+  - Revisar respuesta: *No required SSL certificate was sent*.
 - Request seguro (con certificado cliente)
-  - Ejecutar:
+  - Ejecutar, modificando las rutas del la clave privada (`key`) y del certificado cliente (`cert`) en el comando:
     ```
     curl -k \
     --key ~/devel/data/openssl-ca/req-restclient/restclient.key \
@@ -88,15 +90,36 @@ Otra alternativa es ubicar el ejecutable que se instala junto con [Git for Windo
     https://localhost/customers
     ```
 
+#### 6.1. Probar con Postman
+
+- Configurar el certificado root de CA en Postman
+  - Desde preferencias, entrar a la pestaña `Certificates`
+  - En la sección `CA Certificates` ubicar y seleccionar el archivo `openssl-ca/ca.crt`
+  ![](docs/postman-ca-cert-settings.png)
+- Ejecutar con un nuevo request un `GET` a la URL `https://localhost/customers`
+  - Revisar respuesta: *No required SSL certificate was sent*.
+- Configurar el certificado cliente en Postman
+  - Desde preferencias, entrar a la pestaña `Certificates`
+  - En la sección `Client Certificates` seleccionar `Add certificate`
+  - En `Host` ingresar `localhost`
+  - En `CRT file` ubicar y seleccionar el archivo `openssl-ca/req-restclient/restclient.crt`
+  - En `KEY file` ubicar y seleccionar el archivo `openssl-ca/req-restclient/restclient.crt`
+  - Seleccionar `Add`
+  ![](docs/postman-client-cert-settings.png)
+- Ejecutar con el mismo request un `GET` a la URL `https://localhost/customers`
+  - Revisar respuesta sin error.
+
 ### 7. Probar con cliente Spring
 
 - Crear keystore del cliente en formato P12
   - Abrir una consola, ubicarse en el directorio `openssl-ca/req-restclient` 
   - Ejecutar: `openssl pkcs12 -export -inkey restclient.key -in restclient.crt -out restclient-keystore.p12`
+    - Va a pedir ingresar un `export password`, ingresar el valor `openssl`. *Si se ingresa otra clave se deberá modificar la constante `KEYSTORE_PASSWORD` en la clase `CustomerClientConfiguration` antes de ejecutar la aplicación cliente*.
   - Copiar el archivo `restclient-keystore.p12` en el directorio `client-mtls/src/main/resources`
 - Create truststore en formato JKS (CA.crt)
   - Abrir una consola, ubicarse en el directorio `openssl-ca` 
   - Ejecutar: `keytool -import -v -trustcacerts -alias root -keypass openssl -file ca.crt -keystore truststore.jks -storepass openssl -storetype JKS`
+    - Va a pedir ingresar una confirmación. Se ingresa `yes` y se da `Enter`
   - Copiar el archivo `truststore.jks` en el directorio `client-mtls/src/main/resources`
 - Ejecutar la clase `ClientMtlsApplication`
 
