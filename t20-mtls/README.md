@@ -19,6 +19,7 @@ Otra alternativa es ubicar el ejecutable que se instala junto con [Git for Windo
 ### 2. Configurar un CA local
 
 - En cualquier ruta de trabajo permanente, crear una carpeta llamada `openssl-ca`
+  - Dentro, crear las carpetas: `certs`, `crl`, `newcerts` y `private` 
 - Copiar todo el contenido de la carpeta `ca` hacia la carpeta recién creada `openssl-ca`
 - Editar el archivo `openssl-ca/ca.cfg`
   - Dentro de la sección `[ my_ca ]`, el valor de la propiedad `dir` con la ruta completa hacia la carpeta creada anteriormente
@@ -89,6 +90,7 @@ Otra alternativa es ubicar el ejecutable que se instala junto con [Git for Windo
     --cert ~/devel/data/openssl-ca/req-restclient/restclient.crt \
     https://localhost/customers
     ```
+- También se pueden ejecutar los comandos con el parámetro `-v` para poder ver el detalle dell *handshake* TLS en cada caso.
 
 #### 6.1. Probar con Postman
 
