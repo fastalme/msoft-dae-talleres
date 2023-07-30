@@ -7,12 +7,12 @@
 - Levantar `irs-ms`
 - Levantar `customer-ms`
 - Para esquema Random
-  - En el archivo `customer-ms/src/main/resources/application.properties`
+  - En el archivo [./customer-ms/src/main/resources/application.properties](./customer-ms/src/main/resources/application.properties)
     - Habilitar la propiedad `spring.profiles.active` debajo del comentario `Random`
   - Reiniciar `customer-ms`
 
 ## Aspectos a tratar
-- Revisar los principales tecnologías utilizadas
+- Revisar las principales tecnologías utilizadas
 - OpenFeign como mecanismo para generar clientes REST
 - Guardar 1 nuevo cliente desde `customer-ms`
 - Consultar `full-history` del cliente desde `customer-ms`
@@ -23,5 +23,5 @@
 - Comprobar Round Robin desde `customer-ms` chequeando el valor de `sourcePID` en cada request
 - Comprobar Random desde `customer-ms` chequeando el valor de `sourcePID` en cada request
 
-[Spring Cloud Load Balancer Docs](https://docs.spring.io/spring-cloud-commons/docs/3.1.3/reference/html/#spring-cloud-loadbalancer)
-[Spring Cloud OpenFeign](https://docs.spring.io/spring-cloud-openfeign/docs/3.1.3/reference/html/#netflix-feign-starter)
+[Spring Cloud Load Balancer Docs](https://docs.spring.io/spring-cloud-commons/docs/current/reference/html/#spring-cloud-loadbalancer)
+[Spring Cloud OpenFeign](https://docs.spring.io/spring-cloud-openfeign/docs/current/reference/html/#netflix-feign-starter)
