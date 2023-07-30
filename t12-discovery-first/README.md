@@ -11,4 +11,4 @@
   - Revisar en el browser: `http://localhost:8100/`
   - Revisar Config Server como Discovery Client
 
-[Discovery First Docs](https://docs.spring.io/spring-cloud-config/docs/3.1.3/reference/html/#discovery-first-bootstrap)
+[Discovery First Docs](https://docs.spring.io/spring-cloud-config/docs/current/reference/html/#discovery-first-bootstrap)
