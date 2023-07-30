@@ -9,7 +9,7 @@ public class MyEventListener implements MessageListener<MyEvent> {
     @Override
     public void onMessage(Message<MyEvent> message) {
         MyEvent myEvent = message.getMessageObject();
-        System.out.printf("Evento: %s Fecha: %s%n", myEvent.getMessage(), myEvent.getTimestamp());
+        System.out.printf("Evento: %s Fecha: %s%n", myEvent.message(), myEvent.timestamp());
     }
 
 }
