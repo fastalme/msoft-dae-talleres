@@ -14,11 +14,11 @@
   - Levantar `customer-ms`
 
 ## Aspectos a tratar
-- Revisar los principales tecnologías utilizadas
+- Revisar las principales tecnologías utilizadas
 - Esquema Config First (análisis)
   - Revisar en el browser: `http://localhost:8100/`
 - Esquema Disconfig: Discovery y Config en el mismo componente (alternativa, no muy recomendada en Producción)
   - Revisar en el browser: `http://localhost:8200/`
 - Esquema Discovery First (ver taller12)
 
-[Eureka Server Docs](https://docs.spring.io/spring-cloud-netflix/docs/3.1.3/reference/html/)
+[Eureka Server Docs](https://docs.spring.io/spring-cloud-netflix/docs/current/reference/html/)
