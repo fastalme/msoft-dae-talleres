@@ -25,6 +25,12 @@ public class EarningsController {
                         new Earning(customerId, (short) 2019, new BigDecimal("35000.0"))),
                 System.getProperty("PID"));
 
+        try {
+            Thread.sleep(3500);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
         logger.info("Returning earnings from process with id {}", result.getSourcePID());
 
         return new ResponseEntity<>(result, HttpStatus.OK);
