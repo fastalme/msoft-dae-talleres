@@ -2,7 +2,7 @@
 
 ## Guía
 
-### 1. Instalar OpenSSl (Solo para Windows)
+### 1. Instalar OpenSSL (Solo para Windows)
 
 #### Alternativa 1
 
@@ -36,8 +36,8 @@ Otra alternativa es ubicar el ejecutable que se instala junto con [Git for Windo
 - En una consola nueva, ubicada en el directorio `openssl-ca`, ejecutar los siguientes comandos:
   - Crear una semilla random: `openssl rand -out private/.rand 1000`
   - Generar una llave privada RSA para el certificado root: `openssl genrsa -aes256 -out private/ca.key`
-    - Se solicitará una clave para la llave privada. Ingresar y recordar este valor para cuando sea solicitado. 
-  - Generar el certificado root: `openssl req -config ca.cfg -new -x509 -key private/ca.key -out ca.crt`
+    - Se solicitará configurar una clave para la llave privada. Ingresar y recordar este valor para cuando sea solicitado. 
+  - Generar el certificado root: `openssl req -config ca.cfg -new -x509 -key private/ca.key -days 3650 -out ca.crt`
 
 ### 3. Crear certificados hijos
 

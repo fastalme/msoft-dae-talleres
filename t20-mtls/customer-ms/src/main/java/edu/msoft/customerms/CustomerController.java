@@ -6,7 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RestController
@@ -31,9 +31,15 @@ public class CustomerController {
 
     @GetMapping("/customers")
     public ResponseEntity<List<Customer>> getAllCustomers(HttpServletRequest request) {
-        LOG.info(LOG_STRING, X_CERT_ISSUER, request.getHeader(X_CERT_ISSUER));
-        LOG.info(LOG_STRING, X_CERT_SUBJECT, request.getHeader(X_CERT_SUBJECT));
-        LOG.info(LOG_STRING, X_CERT_VERIFY, request.getHeader(X_CERT_VERIFY));
+
+        String xCertIssuerHeaderValue = request.getHeader(X_CERT_ISSUER);
+        String xCertSubjectHeaderValue = request.getHeader(X_CERT_SUBJECT);
+        String xCertVerifyHeaderValue = request.getHeader(X_CERT_VERIFY);
+
+        LOG.info(LOG_STRING, X_CERT_ISSUER, xCertIssuerHeaderValue);
+        LOG.info(LOG_STRING, X_CERT_SUBJECT, xCertSubjectHeaderValue);
+        LOG.info(LOG_STRING, X_CERT_VERIFY, xCertVerifyHeaderValue);
+
         return new ResponseEntity<>(this.customerRepository.findAll(), HttpStatus.OK);
     }
 
