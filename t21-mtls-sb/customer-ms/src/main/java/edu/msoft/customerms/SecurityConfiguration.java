@@ -2,19 +2,20 @@ package edu.msoft.customerms;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(securedEnabled = true)
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+@EnableMethodSecurity(securedEnabled = true)
+public class SecurityConfiguration {
 
     @Bean
     public UserDetailsService userDetailsService () {
@@ -27,13 +28,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         };
     }
 
-    @Override
-    protected void configure (HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                .anyRequest().authenticated().and().x509()
-                .subjectPrincipalRegex("CN=(.*?)(?:,|$)")
-                .userDetailsService(userDetailsService())
-                .and().csrf().disable();
+    @Bean
+    public SecurityFilterChain filterChain (HttpSecurity http) throws Exception {
+
+        http.authorizeHttpRequests(auth -> auth.anyRequest().authenticated())
+                .x509(x509 -> x509.subjectPrincipalRegex("CN=(.*?)(?:,|$)").userDetailsService(userDetailsService()))
+                .csrf(AbstractHttpConfigurer::disable);
+
+        return http.build();
     }
 
 }

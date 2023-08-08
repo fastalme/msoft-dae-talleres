@@ -30,7 +30,7 @@ public class CustomerController {
     @GetMapping("/customers")
     @Secured("ROLE_USER")
     public ResponseEntity<List<Customer>> getAllCustomers(Principal principal) {
-        LOG.info("Username: {}", principal.getName());
+        LOG.info("User calling the service: {}", principal.getName());
         return new ResponseEntity<>(this.customerRepository.findAll(), HttpStatus.OK);
     }
 

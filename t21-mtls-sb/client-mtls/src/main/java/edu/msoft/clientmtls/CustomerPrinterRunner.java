@@ -22,8 +22,8 @@ public class CustomerPrinterRunner implements CommandLineRunner {
     public void run (String... args) throws Exception {
 
         Customer newCustomer = new Customer();
-        newCustomer.setName("Fausto");
-        newCustomer.setLastname("Almeida");
+        newCustomer.setName("John");
+        newCustomer.setLastname("Doe");
         newCustomer.setBirthDate(LocalDate.of(2020, 1, 2));
 
         customerClient.createCustomer(newCustomer);
