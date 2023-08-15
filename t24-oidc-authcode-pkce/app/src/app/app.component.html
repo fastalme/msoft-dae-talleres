@@ -1,0 +1,17 @@
+<a (click)="login()">Login</a>
+<br/>
+<p>Refresh the browser after login to view the text</p>
+<br/>
+<p>{{text}}</p>
+<br/>
+<h3>Customer list</h3>
+<div *ngFor="let customer of customers">
+  <h4>
+    {{ customer.name + ' ' + customer.lastname }}
+  </h4>
+  <p>
+    Date of birth: {{ customer.birthDate }}
+  </p>
+</div>
+<br/>
+<a (click)="logout()">Logout</a>
