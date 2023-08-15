@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "c7fe49cc-9717-41e8-abec-a47b85db50f5",
+		"_postman_id": "ba81c975-8c44-4dc8-a67a-5e7afdf0f37b",
 		"name": "Talleres - MSOFT - DAE",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "1170765",
-		"_collection_link": "https://fastalme-team.postman.co/workspace/UPS~1f7d0044-1cca-49bf-a968-64a5eecfeaea/collection/1170765-c7fe49cc-9717-41e8-abec-a47b85db50f5?action=share&creator=1170765&source=collection_link"
+		"_collection_link": "https://fastalme-team.postman.co/workspace/UPS~1f7d0044-1cca-49bf-a968-64a5eecfeaea/collection/1170765-ba81c975-8c44-4dc8-a67a-5e7afdf0f37b?action=share&source=collection_link&creator=1170765"
 	},
 	"item": [
 		{
@@ -29,7 +29,7 @@
 					"response": []
 				},
 				{
-					"name": "Save customer",
+					"name": "Save customer Copy",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -583,7 +583,7 @@
 			]
 		},
 		{
-			"name": "Taller 20 - MTLS",
+			"name": "Taller 20 y 21 - MTLS",
 			"item": [
 				{
 					"name": "Get all customers - nginx",
@@ -670,6 +670,369 @@
 			]
 		},
 		{
+			"name": "Taller 22 - JWT",
+			"item": [
+				{
+					"name": "Get all customers",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/customers",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"pm.collectionVariables.set(\"jwt_token\", jsonData.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "user",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "user",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/signin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all customers - with token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/customers",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customers"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Taller 23 - OIDC Client Credentials",
+			"item": [
+				{
+					"name": "Get Report Token",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"pm.globals.set(\"report_token\", jsonData.access_token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "client_id",
+									"value": "customer-report-app",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "customer-report-app-secret",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:9100/realms/t23-oidc-cc/protocol/openid-connect/token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9100",
+							"path": [
+								"realms",
+								"t23-oidc-cc",
+								"protocol",
+								"openid-connect",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all customers - with Report token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{report_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/customers",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save customer - with Report token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{report_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"John\",\n    \"lastname\": \"Doe\",\n    \"birthDate\": \"2000-01-01\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/customer",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Admin Token",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"pm.globals.set(\"admin_token\", jsonData.access_token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "client_id",
+									"value": "customer-admin-app",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "customer-admin-app-secret",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:9100/realms/t23-oidc-cc/protocol/openid-connect/token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9100",
+							"path": [
+								"realms",
+								"t23-oidc-cc",
+								"protocol",
+								"openid-connect",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save customer - with Admin token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"John\",\n    \"lastname\": \"Doe\",\n    \"birthDate\": \"2000-01-01\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/customer",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all customers - with Admin token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/customers",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customers"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Diceware",
 			"item": [
 				{
@@ -723,6 +1086,12 @@
 					"response": []
 				}
 			]
+		}
+	],
+	"variable": [
+		{
+			"key": "jwt_token",
+			"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJFeTc1eFZHSl96MUVvaGZmeWhrU25tV3lCWEtfQ1VmZW02YkF1Zk5EbWxvIn0.eyJleHAiOjE2OTE1NTI4NjUsImlhdCI6MTY5MTU1MjU2NSwianRpIjoiZjRkMjY0MDktYWNiNy00YWJlLWJkZmYtYjRjNDcyZjVkYTkyIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDkwL3JlYWxtcy9kZW1vIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjNiM2Y4ZmVlLTVkODgtNDViMy05NzlmLWZjNjZmNGQzNzBlYyIsInR5cCI6IkJlYXJlciIsImF6cCI6ImRlbW8tYXBwIiwic2Vzc2lvbl9zdGF0ZSI6ImMyZDE5NTU0LTI3NWItNDBlYS1hMDZhLWExYzlhNTc5NjdjOCIsImFjciI6IjEiLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsib2ZmbGluZV9hY2Nlc3MiLCJkZWZhdWx0LXJvbGVzLWRlbW8iLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsInNpZCI6ImMyZDE5NTU0LTI3NWItNDBlYS1hMDZhLWExYzlhNTc5NjdjOCIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoidGVzdCIsImdpdmVuX25hbWUiOiIiLCJmYW1pbHlfbmFtZSI6IiJ9.fjnlwjXb1HJJzhkFCW54joPm1P-8ItCDwT_TsnDHffJyr1HSk8Z3FAs-bGsxsiL5r-VhayTrw8YwMqxkoKn727V--sWhoY9xQ8ngBvmYfP-Csh7N_4_B4mrU5KoLznb5iV9uZttdupczyf0_U6rwPRLMwHVrm3yTQ2S__HGk-DbaQtM8cou7AFduSMUvoNREjkaTwoQavSicAQiOEOmf5ZKYHp8m2qOzegvGa0KujgIniOz2t2dzhx6IkyVCV98f-XBumk3Il12TVQS6sc2mwZp8SUuIJ_OzIQo4M3yPE0JeD6EnBIP9z-TS2BTsEaneg-Oq6lVNDYCQWkgMr6dXSQ"
 		}
 	]
 }
