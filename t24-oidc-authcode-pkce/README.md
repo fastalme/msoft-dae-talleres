@@ -13,7 +13,9 @@
 - Levantar el frontend
   - Desde la terminal, acceder a la carpeta `app`
   - Ejecutar el comando: `npm install`
+    - Si `npm` no está instalado, instalarlo con alguna de [estas alternativas](https://nodejs.org/en/download/package-manager). [Más información](https://nodejs.org/en/download)
   - Ejecutar el comando: `ng serve`
+    - Si `ng` no está instalado, instalarlo ejecutando:  `npm install -g @angular/cli`. [Más información](https://angular.io/guide/setup-local)
   - Abrir en el explorador: [http://localhost:4200](http://localhost:4200)
 
 ## Aspectos a tratar
