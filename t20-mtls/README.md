@@ -8,7 +8,7 @@
 
 *Los siguientes pasos están basados en esta [guía](https://www.cloudinsidr.com/content/how-to-install-the-most-recent-version-of-openssl-on-windows-10-in-64-bit/)*
 
-- Obtener instalador de esta [página](https://slproweb.com/products/Win32OpenSSL.html): `Win64 OpenSSL v3.0.5 Light`
+- Obtener instalador de esta [página](https://slproweb.com/products/Win32OpenSSL.html): `Win64 OpenSSL v3.1.2 Light`
 - Ejecutar e instalar en un directorio fuera del directorio de Windows
 
 #### Alternativa 2
