@@ -66,7 +66,7 @@ Otra alternativa es ubicar el ejecutable que se instala junto con [Git for Windo
     - Guardar el archivo.
 
 ### 4. Preparar la imagen de nginx
-- Copiar los 3 archivos `openssl-ca/req-restapi/restapi.crt`, `openssl-ca/req-restapi/restapi.key` y `openssl-ca/req-restapi/restclient.crt` a la carpeta del repositorio `nginx/ssl`. Reemplazando los actuales.
+- Copiar los 3 archivos (`openssl-ca/req-restapi/restapi.crt`, `openssl-ca/req-restapi/restapi.key` y `openssl-ca/ca.crt`) a la carpeta del repositorio `nginx/ssl`, reemplazando los previos.
 
 ### 5. Levantar el ambiente
 - Empaquetar el proyecto `customer-ms`
@@ -83,11 +83,12 @@ Otra alternativa es ubicar el ejecutable que se instala junto con [Git for Windo
   - Ejecutar: `curl -k https://localhost/customers`
   - Revisar respuesta: *No required SSL certificate was sent*.
 - Request seguro (con certificado cliente)
-  - Ejecutar, modificando las rutas del la clave privada (`key`) y del certificado cliente (`cert`) en el comando:
+  - Ejecutar, modificando las rutas del certificado raíz del CA (`cacert`), la clave privada (`key`) y del certificado cliente (`cert`) en el comando:
     ```
     curl -k \
-    --key ~/devel/data/openssl-ca/req-restclient/restclient.key \
+    --cacert ~/devel/data/openssl-ca/ca.crt \
     --cert ~/devel/data/openssl-ca/req-restclient/restclient.crt \
+    --key ~/devel/data/openssl-ca/req-restclient/restclient.key \
     https://localhost/customers
     ```
 - También se pueden ejecutar los comandos con el parámetro `-v` para poder ver el detalle dell *handshake* TLS en cada caso.
