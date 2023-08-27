@@ -83,7 +83,7 @@ Otra alternativa es ubicar el ejecutable que se instala junto con [Git for Windo
   - Ejecutar: `curl -k https://localhost/customers`
   - Revisar respuesta: *No required SSL certificate was sent*.
 - Request seguro (con certificado cliente)
-  - Ejecutar, modificando las rutas del certificado raíz del CA (`cacert`), la clave privada (`key`) y del certificado cliente (`cert`) en el comando:
+  - Ejecutar, modificando las rutas del certificado raíz del CA (`cacert`), de la clave privada (`key`) y del certificado cliente (`cert`) en el comando:
     ```
     curl -k \
     --cacert ~/devel/data/openssl-ca/ca.crt \
@@ -91,7 +91,7 @@ Otra alternativa es ubicar el ejecutable que se instala junto con [Git for Windo
     --key ~/devel/data/openssl-ca/req-restclient/restclient.key \
     https://localhost/customers
     ```
-- También se pueden ejecutar los comandos con el parámetro `-v` para poder ver el detalle dell *handshake* TLS en cada caso.
+- También se pueden ejecutar los comandos con el parámetro `-v` para poder ver el detalle del *handshake* TLS en cada caso.
 
 #### 6.1. Probar con Postman
 
