@@ -4,7 +4,7 @@
 - Acceder https://start.spring.io/
 - Seleccionar Project:  `Maven`
 - Seleccionar Language:  `Java`
-- Seleccionar Spring Boot:  `3.1.2`
+- Seleccionar Spring Boot:  `3.3.0`
 - Ingresar datos de Project Metadata
     - Group: `edu.msoft`
     - Artifact: `events-publisher`
@@ -18,7 +18,8 @@
 - Descargarlo y descomprimirlo
 - Abrir ambos en Intellij IDEA
 - Desarrollar publicador de eventos
-- Desarrollar suscriptor de eventos
+  - Desarrollar suscriptor de eventos
+
 
 ## Aspectos a tratar
 - Revisar las principales tecnologías utilizadas
