@@ -1,7 +1,9 @@
 # Taller 22 - JWT
 ## Guía
 
-El comando utilizado para extraer la llave pública de la llave privada fue: `openssl pkey -in restapi.key -pubout -out restapi.pub`
+- El comando utilizado para extraer la llave pública de la llave privada fue: `openssl pkey -in restapi.key -pubout -out restapi.pub`
+- Levantar `customer-ms`
+- Seguir los requests de la colección de Postman.
 
 ## Aspectos a tratar
 - Revisar las principales tecnologías utilizadas
