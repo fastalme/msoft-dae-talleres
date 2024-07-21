@@ -10,7 +10,7 @@
 - Levantar `customer-ms`
 - Levantar `api-gateway`
 - Levantar vía Docker una instancia de `jaeger jaegertracing/all-in-one:1.36`
-  - La primera vez: `docker run -d -p 9411:9411 -p 16686:16686 -e COLLECTOR_ZIPKIN_HOST_PORT=9411  --name jaeger jaegertracing/all-in-one:1.47`
+  - La primera vez: `docker run -d -p 9411:9411 -p 16686:16686 -e COLLECTOR_ZIPKIN_HOST_PORT=9411  --name jaeger jaegertracing/all-in-one:1.59`
   - Posteriormente: `docker stop jaeger`, `docker start jaeger`, etc.
 
 ## Aspectos a tratar
