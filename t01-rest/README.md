@@ -4,12 +4,12 @@
 - Acceder a https://start.spring.io/
 - Seleccionar Project:  `Maven`
 - Seleccionar Language:  `Java`
-- Seleccionar Spring Boot:  `3.3.0`
+- Seleccionar Spring Boot:  `3.3.2`
 - Ingresar datos de Project Metadata
     - Group: `edu.msoft`
     - Artifact: `customer-ms`
 - Seleccionar Packaging: `Jar`
-- Seleccionar Java: `17`
+- Seleccionar Java: `21`
 - Agregar Dependencies:  `Spring Web`, `Spring Data JPA`, `H2`
 - Descargarlo y descomprimirlo
 - Abrirlo en Intellij IDEA
