@@ -8,7 +8,7 @@
 
 *Los siguientes pasos están basados en esta [guía](https://www.cloudinsidr.com/content/how-to-install-the-most-recent-version-of-openssl-on-windows-10-in-64-bit/)*
 
-- Obtener instalador de esta [página](https://slproweb.com/products/Win32OpenSSL.html): `Win64 OpenSSL v3.1.2 Light`
+- Obtener instalador de esta [página](https://slproweb.com/products/Win32OpenSSL.html): `Win64 OpenSSL v3.3.1 Light`
 - Ejecutar e instalar en un directorio fuera del directorio de Windows
 
 #### Alternativa 2
@@ -74,8 +74,8 @@ Otra alternativa es ubicar el ejecutable que se instala junto con [Git for Windo
     - En Windows: `mvnw.cmd clean package` 
     - En Linux o MacOS: `./mvnw clean package`
 - Desde la carpeta raíz del repositorio
-  - Ejecutar `docker-compose up --build`
-    - Si `docker-compose` no está instalado, se puede seguir esta [guía](https://docs.docker.com/compose/install/).
+  - Ejecutar `docker compose up --build`
+    - Si `docker compose` no está instalado, se puede seguir esta [guía](https://docs.docker.com/compose/install/).
 
 ### 6. Probar con curl
 
