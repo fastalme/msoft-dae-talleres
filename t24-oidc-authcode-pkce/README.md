@@ -1,7 +1,7 @@
 # Taller 24 - OIDC Authorization Code with PKCE
 ## Guía
 
-- Levantar una instancia local de Keycloak: `docker run -p 9100:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin quay.io/keycloak/keycloak:22.0.1 start-dev`
+- Levantar una instancia local de Keycloak: `docker run -p 9100:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin keycloak/keycloak:25.0.2 start-dev`
 - Importar el realm del taller en la instancia de Keycloak
   - Acceder desde un browser a [http://localhost:9100/](http://localhost:9100/)
   - Dar clic en `Administration Console`
