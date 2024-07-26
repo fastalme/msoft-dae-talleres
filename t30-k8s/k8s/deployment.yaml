@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: customer-ms
+  namespace: t30-k8s
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: customer-ms
+  template:
+    metadata:
+      labels:
+        app: customer-ms
+    spec:
+      containers:
+      - image: fastalme/customer-ms:0.0.1-SNAPSHOT
+        imagePullPolicy: Always
+        name: customer-ms
+        envFrom:
+          - configMapRef:
+              name: customer-ms-config
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: irs-ms
+  namespace: t30-k8s
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: irs-ms
+  template:
+    metadata:
+      labels:
+        app: irs-ms
+    spec:
+      containers:
+        - image: fastalme/irs-ms:0.0.1-SNAPSHOT
+          imagePullPolicy: Always
+          name: irs-ms
