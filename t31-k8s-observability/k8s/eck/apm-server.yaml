@@ -1,0 +1,15 @@
+apiVersion: apm.k8s.elastic.co/v1
+kind: ApmServer
+metadata:
+  name: eck
+  namespace: t31-k8s-observability
+spec:
+  version: 8.14.3
+  count: 1
+  elasticsearchRef:
+    name: eck
+    namespace: t31-k8s-observability
+  http:
+    tls:
+      selfSignedCertificate:
+        disabled: true

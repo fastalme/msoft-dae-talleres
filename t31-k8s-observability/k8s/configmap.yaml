@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: customer-ms-config
+  namespace: t31-k8s-observability
+data:
+  SERVER_PORT: "8080"
+  IRS_SERVICE_URL: "http://irs-ms-service:8080"
+  JAVA_TOOL_OPTIONS: "-javaagent:/elastic-apm-agent.jar"
+  ELASTIC_APM_SERVICE_NAME: "customer-ms"
+  ELASTIC_APM_ENVIRONMENT: "t31-k8s-observability"
+  ELASTIC_APM_LOG_SENDING: "true"
+  ELASTIC_APM_APPLICATION_PACKAGES: "edu.msoft"
+  ELASTIC_APM_SERVER_URL: "http://eck-apm-http:8200"
+  ELASTIC_APM_SECRET_TOKEN: "my-secret-token"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: irs-ms-config
+  namespace: t31-k8s-observability
+data:
+  SERVER_PORT: "8080"
+  JAVA_TOOL_OPTIONS: "-javaagent:/elastic-apm-agent.jar"
+  ELASTIC_APM_SERVICE_NAME: "irs-ms"
+  ELASTIC_APM_ENVIRONMENT: "t31-k8s-observability"
+  ELASTIC_APM_LOG_SENDING: "true"
+  ELASTIC_APM_APPLICATION_PACKAGES: "edu.msoft"
+  ELASTIC_APM_SERVER_URL: "http://eck-apm-http:8200"
+  ELASTIC_APM_SECRET_TOKEN: "my-secret-token"
