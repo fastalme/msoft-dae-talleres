@@ -4,7 +4,6 @@ metadata:
   labels:
     app: customer-ms
   name: customer-ms
-  namespace: t31-k8s-observability
 spec:
   ports:
   - name: http
@@ -21,7 +20,6 @@ metadata:
   labels:
     app: irs-ms
   name: irs-ms-service
-  namespace: t31-k8s-observability
 spec:
   ports:
     - name: http

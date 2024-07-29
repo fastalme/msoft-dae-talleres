@@ -42,16 +42,17 @@
 - Presentar namespaces existentes `kubectl get ns`
 - Crear namespace del taller `kubectl create namespace t31-k8s-observability`
 - Establecer el nuevo namespace por defecto `kubectl config set-context --current --namespace=t31-k8s-observability`
-- Crear los secrets para el usuario de Kibana y el usuario del agente
+- Crear los secrets para el usuario de Elasticsearch (usado desde Kibana) y el token del agente APM
   - `kubectl create secret generic eck-es-elastic-user --from-literal=elastic=elastic`
   - `kubectl create secret generic eck-apm-token --from-literal=secret-token=my-secret-token`
 - Crear los elementos de ECK `kubectl apply -f eck`
 - Crear los elementos aplicativos `kubectl apply -f .`
 
+- Acceder en la interfaz de Kibana: [http://localhost:5601/app/home#/](http://localhost:5601/app/home#/) (Usuario: `elastic`, Clave: `elastic`)
+  - Instalar APM Integration: Menu -> `Management` -> `Integrations` -> `APM`
+    - Entrar a `APM Integration` -> `Add Elastic APM` -> `Save and continue`
+
 - Probar con requests a Postman
-- Acceder en la interfaz de Kibana: [http://localhost:5601/app/home#/](http://localhost:5601/app/home#/)
-  - Usuario: `elastic`
-  - Clave: `elastic`
 
 ## Aspectos a tratar
 - Tecnologías utilizadas
