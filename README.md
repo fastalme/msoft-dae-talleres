@@ -22,24 +22,24 @@ https://www.jetbrains.com/shop/eform/students
 ## Contenido
 
 ### Backend
-- [Taller 01 - REST Service](t01-rest/README.md)
-- [Taller 02 - Events](t02-events/README.md)
+- [Taller 01 - REST Service](t01-rest)
+- [Taller 02 - Events](t02-events)
 
 ### Microservicios (Spring Cloud) 
-- [Taller 10 - Config Server](t10-config-server/README.md)
-- [Taller 11 - Discovery Server (Config First)](t11-discovery-server/README.md)
-- [Taller 12 - Discovery Server (Discovery First)](t12-discovery-first/README.md)
-- [Taller 13 - Client Side Load Balancing](t13-client-side-load-balancing/README.md)
-- [Taller 14 - API Gateway](t14-api-gateway/README.md)
-- [Taller 15 - Distributed Tracing](t15-distributed-tracing/README.md)
+- [Taller 10 - Config Server](t10-config-server)
+- [Taller 11 - Discovery Server (Config First)](t11-discovery-server)
+- [Taller 12 - Discovery Server (Discovery First)](t12-discovery-first)
+- [Taller 13 - Client Side Load Balancing](t13-client-side-load-balancing)
+- [Taller 14 - API Gateway](t14-api-gateway)
+- [Taller 15 - Distributed Tracing](t15-distributed-tracing)
 
 ### Microservicios (K8s)
-- [Taller 30 - Kubernetes](t30-k8s/README.md)
-- [Taller 31 - Kubernetes (Observability)](t31-k8s-observability/README.md)
+- [Taller 30 - Kubernetes](t30-k8s)
+- [Taller 31 - Kubernetes (Observability)](t31-k8s-observability)
 
 ## Seguridad en Aplicaciones Web
-- [Taller 20 - MTLS](t20-mtls/README.md)
-- [Taller 21 - MTLS (Spring Boot)](t21-mtls-sb/README.md)
-- [Taller 22 - JWT](t22-jwt/README.md)
-- [Taller 23 - OIDC (Client Credentials)](t23-oidc-clientcredentials/README.md)
-- [Taller 24 - OIDC (Authorization Code + PKCE)](t24-oidc-authcode-pkce/README.md)
+- [Taller 20 - MTLS](t20-mtls)
+- [Taller 21 - MTLS (Spring Boot)](t21-mtls-sb)
+- [Taller 22 - JWT](t22-jwt)
+- [Taller 23 - OIDC (Client Credentials)](t23-oidc-clientcredentials)
+- [Taller 24 - OIDC (Authorization Code + PKCE)](t24-oidc-authcode-pkce)
