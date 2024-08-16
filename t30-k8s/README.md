@@ -4,6 +4,12 @@
 ### En Docker Hub
 - Crear cuenta gratuita (En el ejemplo: `fastalme`)
 - Crear repositorios públicos: `irs-ms` y `customer-ms`
+- Iniciar sesión en Docker Desktop con sus nuevas credenciales (`Sign in`)
+  - Luego de este proceso, el ícono de Docker Desktop debería actualizarce, indicando que hemos iniciado sesión correctamente
+  - Si esto no ocurre, realizar los siguientes pasos:
+    - En la terminal ejecutar `docker login -u <usuario>`
+    - La terminal solicitará ingresar la contraseña
+    - Luego de ingresarla y aceptar, deberiamos ver el mensaje `Login Succeeded`
 
 **En cada uno de los ejemplos y archivos siguientes, reemplazar `fastalme` por el nombre de la cuenta creada.** 
 
