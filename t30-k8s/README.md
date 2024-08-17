@@ -32,11 +32,11 @@
 - Publicar imagen en Docker Hub `docker push fastalme/irs-ms:0.0.1-SNAPSHOT`
 
 ### Kubernetes (kubectl + Lens)
-- Entrar a la carpeta `k8s`
 - Desde Docker Desktop habilitar Kubernetes:
   - Settings -> Kubernetes -> Check `Enable Kubernetes` -> Apply & restart
 - Revisar contextos configurados `kubectl config get-contexts`
 - Seleccionar contexto de docker-desktop: `kubectl config use-context docker-desktop`
+- Entrar a la carpeta `k8s`
 - Presentar namespaces existentes `kubectl get ns`
 - Crear namespace del taller `kubectl apply -f namespace.yaml`
 - Establecer el nuevo namespace por defecto `kubectl config set-context --current --namespace=t30-k8s`
@@ -60,3 +60,10 @@
   - Estado esperado
   - Actualizaciones
 - Diferencias entre Kubernetes & Spring Cloud: Menos código de infraestructura dentro de la aplicación.
+
+## Para liberar los recursos creados luego del taller
+- Entrar a la carpeta `k8s`
+- Eliminar los services para customer-ms y irs-ms `kubectl delete -f service.yaml`
+- Eliminar los deployments para customer-ms y irs-ms `kubectl delete -f deployment.yaml`
+- Eliminar config map para customer-ms `kubectl delete -f configmap.yaml`
+- Eliminar namespace del taller `kubectl delete -f namespace.yaml`
