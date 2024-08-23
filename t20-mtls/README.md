@@ -62,11 +62,11 @@ Otra alternativa es ubicar el ejecutable que se instala junto con [Git for Windo
     - Generar certificado firmado por CA: `openssl ca -config ../ca.cfg -in restclient.csr -out restclient.crt`
 - Completar la cadena de certificación en `restclient.crt`
     - Abrir el archivo `openssl-ca/ca.crt` en un editor de texto y copiar el contenido.
-    - Abrir el archivo `openssl-ca/req-restapi/restclient.crt` en un editor de texto y pegar el texto copiado al final del mismo.
+    - Abrir el archivo `openssl-ca/req-restclient/restclient.crt` en un editor de texto y pegar el texto copiado al final del mismo.
     - Guardar el archivo.
 
 ### 4. Preparar la imagen de nginx
-- Copiar los 3 archivos (`openssl-ca/req-restapi/restapi.crt`, `openssl-ca/req-restapi/restapi.key` y `openssl-ca/ca.crt`) a la carpeta del repositorio `nginx/ssl`, reemplazando los previos.
+- Copiar los 3 archivos (`openssl-ca/req-restapi/restapi.crt`, `openssl-ca/req-restapi/restapi.key` y `openssl-ca/req-restclient/restclient.crt`) a la carpeta del repositorio `nginx/ssl`, reemplazando los previos.
 
 ### 5. Levantar el ambiente
 - Empaquetar el proyecto `customer-ms`
@@ -106,7 +106,7 @@ Otra alternativa es ubicar el ejecutable que se instala junto con [Git for Windo
   - En la sección `Client Certificates` seleccionar `Add certificate`
   - En `Host` ingresar `localhost`
   - En `CRT file` ubicar y seleccionar el archivo `openssl-ca/req-restclient/restclient.crt`
-  - En `KEY file` ubicar y seleccionar el archivo `openssl-ca/req-restclient/restclient.crt`
+  - En `KEY file` ubicar y seleccionar el archivo `openssl-ca/req-restclient/restclient.key`
   - Seleccionar `Add`
   ![](docs/postman-client-cert-settings.png)
 - Ejecutar con el mismo request un `GET` a la URL `https://localhost/customers`
@@ -144,3 +144,6 @@ Finalmente, se podrá revisar a nivel cabeceras en el log de consola que se est�
 - En proyecto `client-mtls`
   - Archivos `keystore.p12` y `truststore.jks`
   - Clases `CustomerClientConfiguration` y `CustomerPrinterRunner`
+
+## Documentos relacionados
+- [Directiva `ssl_client_certificate`](https://nginx.org/en/docs/http/ngx_http_ssl_module.html#ssl_client_certificate)
