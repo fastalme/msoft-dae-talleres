@@ -32,5 +32,9 @@
       - Roles asignados: `customer-basic-reader`, `customer-advanced-reader`
 - Mapeo de token JWT
   - Revisarlo en https://jwt.io/
+- App cliente
+  - Configuración de librería para OIDC `angular-oauth2-oidc`
+    - Dependencia: [package.json](app/package.json)
+    - URL y client scope: [auth.config.ts](app/src/app/auth.config.ts)
 - Validación de permisos a través de `client scopes` y `roles`
 - Debug de `Authorization Code with PKCE Flow` desde el browser
