@@ -48,10 +48,6 @@ Otra alternativa es ubicar el ejecutable que se instala junto con [Git for Windo
 - En una consola, ubicada en el directorio `openssl-ca/req-restapi`, ejecutar los siguientes comandos:
   - Generar llave privada RSA y solicitud de certificado: `openssl req -config restapi.cfg -newkey rsa -nodes -keyout restapi.key -out restapi.csr`
   - Generar certificado firmado por CA: `openssl ca -config ../ca.cfg -in restapi.csr -out restapi.crt`
-- Completar la cadena de certificación en `restapi.crt`
-  - Abrir el archivo `openssl-ca/ca.crt` en un editor de texto y copiar el contenido.
-  - Abrir el archivo `openssl-ca/req-restapi/restapi.crt` en un editor de texto y pegar el texto copiado al final del mismo.
-  - Guardar el archivo.
 
 #### Crear certificado cliente
 - Editar el archivo `openssl-ca/req-restclient/restclient.cfg`
@@ -60,13 +56,9 @@ Otra alternativa es ubicar el ejecutable que se instala junto con [Git for Windo
 - En una consola, ubicada en el directorio `openssl-ca/req-restclient`, ejecutar los siguientes comandos:
     - Generar llave privada RSA y solicitud de certificado: `openssl req -config restclient.cfg -newkey rsa -nodes -keyout restclient.key -out restclient.csr`
     - Generar certificado firmado por CA: `openssl ca -config ../ca.cfg -in restclient.csr -out restclient.crt`
-- Completar la cadena de certificación en `restclient.crt`
-    - Abrir el archivo `openssl-ca/ca.crt` en un editor de texto y copiar el contenido.
-    - Abrir el archivo `openssl-ca/req-restclient/restclient.crt` en un editor de texto y pegar el texto copiado al final del mismo.
-    - Guardar el archivo.
 
 ### 4. Preparar la imagen de nginx
-- Copiar los 3 archivos (`openssl-ca/req-restapi/restapi.crt`, `openssl-ca/req-restapi/restapi.key` y `openssl-ca/req-restclient/restclient.crt`) a la carpeta del repositorio `nginx/ssl`, reemplazando los previos.
+- Copiar los 3 archivos (`openssl-ca/req-restapi/restapi.crt`, `openssl-ca/req-restapi/restapi.key` y `openssl-ca/ca.crt`) a la carpeta del repositorio `nginx/ssl`, reemplazando los previos.
 
 ### 5. Levantar el ambiente
 - Empaquetar el proyecto `customer-ms`
