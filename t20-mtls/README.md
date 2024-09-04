@@ -119,12 +119,12 @@ Otra alternativa es ubicar el ejecutable que se instala junto con [Git for Windo
     - Abrir una consola, ubicarse en el directorio `./openssl-ca/restclient`
     - Ejecutar: `openssl pkcs12 -export -inkey restclient.key -in restclient.crt -out restclient.p12`
         - Va a pedir ingresar un `export password`, ingresar el valor `openssl`.
-    - Copiar el archivo `restclient.p12` en el directorio `client-mtls/src/main/resources`, reemplazando de ser
+    - Copiar el archivo `restclient.p12` en el directorio [./client-mtls/src/main/resources](./client-mtls/src/main/resources), reemplazando de ser
       necesario.
 - Create truststore en formato JKS
     - Abrir una consola, ubicarse en el directorio `./openssl-ca/demoCA`
     - Ejecutar:
-      `keytool -import -v -trustcacerts -alias root -keypass openssl -file ca.crt -keystore truststore.jks -storepass openssl -storetype JKS`
+      `keytool -import -v -trustcacerts -alias root -keypass openssl -file ca.crt -keystore truststore.jks -storepass openssl -storetype jks`
         - Va a pedir ingresar una confirmación. Se ingresa `yes` y se da `Enter`
     - Copiar el archivo `truststore.jks` en el
       directorio [./client-mtls/src/main/resources](./client-mtls/src/main/resources), reemplazando de ser
