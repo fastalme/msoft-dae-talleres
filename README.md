@@ -37,7 +37,7 @@ https://www.jetbrains.com/shop/eform/students
 - [Taller 30 - Kubernetes](t30-k8s)
 - [Taller 31 - Kubernetes (Observability)](t31-k8s-observability)
 
-## Seguridad en Aplicaciones Web
+### Seguridad en Aplicaciones Web
 - [Taller 20 - MTLS](t20-mtls)
 - [Taller 21 - MTLS (Spring Boot)](t21-mtls-sb)
 - [Taller 22 - JWT](t22-jwt)

@@ -3,7 +3,6 @@
 ## Guía
 
 ### 1. Probar con server Spring
-
 - Crear keystore del servidor en formato P12
   - Abrir una consola, ubicarse en el directorio `openssl-ca/req-restapi` 
   - Ejecutar: `openssl pkcs12 -export -inkey restapi.key -in restapi.crt -out restapi-keystore.p12`

@@ -1,6 +1,6 @@
 # Taller 23 - OIDC Client Credentials
-## Guía
 
+## Guía
 - Levantar una instancia local de Keycloak: `docker run -p 9100:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin keycloak/keycloak:25.0.2 start-dev`
 - Importar el realm del taller en la instancia de Keycloak
   - Acceder desde un browser a [http://localhost:9100/](http://localhost:9100/)

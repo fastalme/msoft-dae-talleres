@@ -1,6 +1,6 @@
 # Taller 02 - Eventos
-## Guía
 
+## Guía
 - Acceder https://start.spring.io/
 - Seleccionar Project:  `Maven`
 - Seleccionar Language:  `Java`
@@ -19,7 +19,6 @@
 - Abrir ambos en Intellij IDEA
 - Desarrollar publicador de eventos
 - Desarrollar suscriptor de eventos
-
 
 ## Aspectos a tratar
 - Revisar las principales tecnologías utilizadas
