@@ -20,8 +20,7 @@ Otra alternativa es ubicar el ejecutable que se instala junto con [Git for Windo
 ### 2. Configurar un CA local
 
 - Copiar la carpeta llamada [./openssl-ca](./openssl-ca) (y todo su contenido) dentro de cualquier ruta de trabajo
-  local. Quedando por
-  ejemplo: `D:\\work\\openssl-ca`. De aquí en adelante trabajaremos sobre ese directorio nuevo.
+  local. Quedando por ejemplo: `C:\devel\openssl-ca`. De aquí en adelante trabajaremos sobre ese directorio nuevo.
 - Editar el archivo `./openssl-ca/demoCA.cfg`
     - Dentro de la sección `[ CA_default_DN ]` cambiar a conveniencia los valores de localidad
         - `countryName_default`
@@ -79,18 +78,17 @@ Otra alternativa es ubicar el ejecutable que se instala junto con [Git for Windo
 ### 6. Probar con curl
 
 - Request inseguro (sin enviar certificado cliente)
-    - Ejecutar: `curl -k https://localhost/customers`
+    - Ejecutar: `curl https://localhost/customers`
     - Revisar respuesta: *No required SSL certificate was sent*.
 - Request seguro (con certificado cliente)
     - Ejecutar, modificando las rutas del certificado raíz del CA (`cacert`), del certificado cliente (`cert`) y de la
       llave privada (`key`) en el comando:
-      ```
-      curl -k \
-      --cacert ~/devel/data/openssl-ca/demoCA/ca.crt \
-      --cert ~/devel/data/openssl-ca/restclient/restclient.crt \
-      --key ~/devel/data/openssl-ca/restclient/restclient.key \
-      https://localhost/customers
-      ```
+      `curl --cacert ~/devel/data/openssl-ca/demoCA/ca.crt --cert ~/devel/data/openssl-ca/restclient/restclient.crt --key ~/devel/data/openssl-ca/restclient/restclient.key https://localhost/customers`
+        - Si al ejecutar este comando desde el CMD de Windows se recibe un mensaje como
+          `curl: (58) schannel: Failed to import cert file...`
+            - Descargar y descomprimir la última versión de [curl for Windows](https://curl.se/download.html)
+            - Ejecutar el comando apuntando directamente al ejecutable descargado, por ejemplo:
+              `C:\<ruta-descarga>\curl-8.9.1_3-win64-mingw\bin\curl --cacert C:\devel\openssl-ca\demoCA\ca.crt --cert C:\devel\openssl-ca\restclient\restclient.crt --key C:\devel\openssl-ca\restclient\restclient.key https://localhost/customers`
 - También se pueden ejecutar los comandos con el parámetro `-v` para poder ver el detalle del *handshake* TLS en cada
   caso.
 
@@ -99,17 +97,17 @@ Otra alternativa es ubicar el ejecutable que se instala junto con [Git for Windo
 - Configurar el certificado root de CA en Postman
     - Desde preferencias, entrar a la pestaña `Certificates`
     - En la sección `CA Certificates` ubicar y seleccionar el archivo `./openssl-ca/demoCA/ca.crt`
-      ![](docs/postman-ca-cert-settings.png) **Actualizar imagen**
+      ![](docs/postman-ca-cert-settings.png)
 - Ejecutar con un nuevo request un `GET` a la URL `https://localhost/customers`
     - Revisar respuesta: *No required SSL certificate was sent*.
 - Configurar el certificado cliente en Postman
     - Desde preferencias, entrar a la pestaña `Certificates`
     - En la sección `Client Certificates` seleccionar `Add certificate`
     - En `Host` ingresar `localhost`
-    - En `CRT file` ubicar y seleccionar el archivo `openssl-ca/restclient/restclient.crt`
-    - En `KEY file` ubicar y seleccionar el archivo `openssl-ca/restclient/restclient.key`
+    - En `CRT file` ubicar y seleccionar el archivo `./openssl-ca/restclient/restclient.crt`
+    - En `KEY file` ubicar y seleccionar el archivo `./openssl-ca/restclient/restclient.key`
     - Seleccionar `Add`
-      ![](docs/postman-client-cert-settings.png) **Actualizar imagen**
+      ![](docs/postman-client-cert-settings.png)
 - Ejecutar con el mismo request un `GET` a la URL `https://localhost/customers`
     - Revisar respuesta sin error.
 
@@ -119,7 +117,8 @@ Otra alternativa es ubicar el ejecutable que se instala junto con [Git for Windo
     - Abrir una consola, ubicarse en el directorio `./openssl-ca/restclient`
     - Ejecutar: `openssl pkcs12 -export -inkey restclient.key -in restclient.crt -out restclient.p12`
         - Va a pedir ingresar un `export password`, ingresar el valor `openssl`.
-    - Copiar el archivo `restclient.p12` en el directorio [./client-mtls/src/main/resources](./client-mtls/src/main/resources), reemplazando de ser
+    - Copiar el archivo `restclient.p12` en el
+      directorio [./client-mtls/src/main/resources](./client-mtls/src/main/resources), reemplazando de ser
       necesario.
 - Create truststore en formato JKS
     - Abrir una consola, ubicarse en el directorio `./openssl-ca/demoCA`
