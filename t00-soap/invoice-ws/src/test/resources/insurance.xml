@@ -1,0 +1,17 @@
+<InsuranceApplication xmlns="http://nicordesigns.com/ws/schema">
+    <Applicant>
+        <SSN>42</SSN>
+        <FirstName>Sara</FirstName>
+        <MiddleName></MiddleName>
+        <LastName>Bodeep</LastName>
+    </Applicant>
+    <InsuranceInfo>
+        <product>Widget Gold Insurance</product>
+        <coverageType>Widget Protector</coverageType>
+        <coverageOption>Widget Value</coverageOption>
+    </InsuranceInfo>
+    <WidgetInfo>
+        <wgtAmount>5000.00</wgtAmount>
+        <wgtContractNumber>300100000234</wgtContractNumber>
+    </WidgetInfo>
+</InsuranceApplication>

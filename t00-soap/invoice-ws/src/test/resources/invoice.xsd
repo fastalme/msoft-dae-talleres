@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://dae.msoft.edu/ws/invoice.xsd"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://dae.msoft.edu/ws/invoice.xsd">
+
+    <xs:complexType name="invoiceDetailType">
+        <xs:sequence>
+            <xs:element type="xs:long" name="productId"/>
+            <xs:element type="xs:string" name="productDescription"/>
+            <xs:element type="xs:double" name="productPrice"/>
+            <xs:element type="xs:long" name="count"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="invoiceDetailsType">
+        <xs:sequence minOccurs="0" maxOccurs="unbounded">
+            <xs:element type="invoiceDetailType" name="invoiceDetail"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="invoiceType">
+        <xs:sequence>
+            <xs:element type="xs:string" name="invoiceId"/>
+            <xs:element type="xs:dateTime" name="invoiceDate"/>
+            <xs:element type="xs:long" name="customerId"/>
+            <xs:element type="invoiceDetailsType" name="invoiceDetails"/>
+            <xs:element type="xs:double" name="subtotal"/>
+            <xs:element type="xs:double" name="tax15"/>
+            <xs:element type="xs:double" name="total"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="invoice" type="invoiceType"/>
+
+</xs:schema>
