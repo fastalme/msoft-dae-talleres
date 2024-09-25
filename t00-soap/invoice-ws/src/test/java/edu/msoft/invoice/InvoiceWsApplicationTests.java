@@ -1,4 +1,4 @@
-package edu.msoft.invoice_ws;
+package edu.msoft.invoice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

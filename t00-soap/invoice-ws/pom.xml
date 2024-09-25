@@ -47,6 +47,37 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.cxf</groupId>
+				<artifactId>cxf-codegen-plugin</artifactId>
+				<version>4.0.5</version>
+				<executions>
+					<execution>
+						<id>generate-sources</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<sourceRoot>${project.basedir}/src/main/java/</sourceRoot>
+							<wsdlOptions>
+								<wsdlOption>
+									<packagenames>
+										<packagename>edu.msoft.invoice.hello</packagename>
+									</packagenames>
+									<wsdl>${basedir}/src/main/resources/hello/HelloEndpoint.wsdl</wsdl>
+								</wsdlOption>
+								<wsdlOption>
+									<packagenames>
+										<packagename>edu.msoft.invoice.terms</packagename>
+									</packagenames>
+									<wsdl>${basedir}/src/main/resources/terms/TermsEndpoint.wsdl</wsdl>
+								</wsdlOption>
+							</wsdlOptions>
+						</configuration>
+						<goals>
+							<goal>wsdl2java</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 

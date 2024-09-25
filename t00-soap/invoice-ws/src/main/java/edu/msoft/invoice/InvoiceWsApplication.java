@@ -1,4 +1,4 @@
-package edu.msoft.invoice_ws;
+package edu.msoft.invoice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

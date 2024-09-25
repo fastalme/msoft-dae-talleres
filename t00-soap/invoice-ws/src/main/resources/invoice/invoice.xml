@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<wsi:invoice xmlns:wsi="http://dae.msoft.edu/ws/invoice.xsd"
-             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xsi:schemaLocation="http://dae.msoft.edu/ws/invoice.xsd invoice.xsd">
-
+<invoice xmlns="http://dae.msoft.edu/ws/invoice"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://dae.msoft.edu/ws/invoice invoice.xsd">
     <invoiceId>8c7801c6-bc6a-4dca-829b-248722594494</invoiceId>
     <invoiceDate>2024-09-07T06:42:29-05:00</invoiceDate>
     <customerId>1</customerId>
@@ -23,4 +22,4 @@
     <subtotal>900.00</subtotal>
     <tax15>135.00</tax15>
     <total>1035.00</total>
-</wsi:invoice>
+</invoice>
