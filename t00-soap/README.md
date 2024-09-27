@@ -1,0 +1,6 @@
+- Servicio WSDL remoto
+- Cliente wsdl remoto
+  - Generar clases cliente
+  - Probar cliente
+- Con mismo WSDL hacer un WS local
+  - Redirigir el cliente y probar
