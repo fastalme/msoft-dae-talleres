@@ -22,6 +22,7 @@ https://www.jetbrains.com/shop/eform/students
 ## Contenido
 
 ### Backend
+- [Taller 00 - SOAP Service](t00-soap)
 - [Taller 01 - REST Service](t01-rest)
 - [Taller 02 - Events](t02-events)
 
