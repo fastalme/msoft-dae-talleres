@@ -1,8 +1,8 @@
 package edu.msoft.clientcli;
 
-import edu.msoft.clientcli.ref.hello.HelloEndpoint;
-import edu.msoft.clientcli.ref.hello.HelloRequest;
-import edu.msoft.clientcli.ref.hello.HelloResponse;
+import com.learnwebservices.services.hello.HelloEndpoint;
+import com.learnwebservices.services.hello.HelloRequest;
+import com.learnwebservices.services.hello.HelloResponse;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
