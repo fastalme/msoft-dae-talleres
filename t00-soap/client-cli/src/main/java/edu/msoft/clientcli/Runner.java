@@ -21,7 +21,7 @@ public class Runner
             throws Exception {
 
         HelloRequest request = new HelloRequest();
-        request.setName("John Doe");
+        request.setName("John Doe from Java");
 
         HelloResponse response = helloEndpoint.sayHello(request);
 
